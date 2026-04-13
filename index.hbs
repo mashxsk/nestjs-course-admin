@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Освітня платформа - Курси</title>
+    <meta charset="utf-8" />
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 850px; margin: 30px auto; background-color: #fcf8f8; color: #333; }
+        h1 { color: #800020; border-bottom: 2px solid #800020; padding-bottom: 10px; margin-bottom: 20px; }
+        td, th { padding: 12px 15px; border-bottom: 1px solid #e6d3d6; text-align: left; }
+        th { background-color: #800020; color: white; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; }
+        table { width: 100%; border-collapse: collapse; background-color: white; box-shadow: 0 4px 10px rgba(128, 0, 32, 0.08); border-radius: 8px; overflow: hidden; }
+        .btn { padding: 8px 15px; margin: 2px; cursor: pointer; text-decoration: none; border: none; background-color: #800020; color: white; border-radius: 5px; font-size: 14px; font-weight: 500; transition: background-color 0.3s ease; display: inline-block; }
+        .btn:hover { background-color: #5a0016; }
+        .btn-outline { background-color: transparent; color: #800020; border: 1px solid #800020; }
+        .btn-outline:hover { background-color: #800020; color: white; }
+        .actions form { display: inline; }
+        .top-panel { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Адміністрування курсів</h1>
+    
+    <div class="top-panel">
+        <a href="/create" class="btn">＋ Додати курс</a>
+    </div>
+    
+    <table>
+        <tr>
+            <th>Назва курсу</th>
+            <th>Викладач</th>
+            <th>Години</th>
+            <th>Дії</th>
+        </tr>
+        {{#each courses}}
+            <tr>
+                <td><strong>{{this.title}}</strong></td>
+                <td>{{this.instructor}}</td>
+                <td>{{this.duration}} год.</td>
+                <td class="actions">
+                    <a href="/edit/{{this.id}}" class="btn">Редагувати</a>
+                    <form action="/delete/{{this.id}}" method="POST">
+                        <input type="submit" value="Видалити" class="btn btn-outline" />
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+</body>
+</html>

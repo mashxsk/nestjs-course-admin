@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Додавання курсу</title>
+    <meta charset="utf-8" />
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 450px; margin: 50px auto; background-color: #fcf8f8; color: #333; }
+        h2 { color: #800020; text-align: center; margin-bottom: 25px; }
+        form { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 6px 15px rgba(128, 0, 32, 0.08); }
+        .field { width: 100%; padding: 12px; margin-top: 6px; margin-bottom: 20px; box-sizing: border-box; border: 1px solid #e6d3d6; border-radius: 6px; font-size: 14px; transition: all 0.3s; background-color: #fafafa; }
+        .field:focus { outline: none; border-color: #800020; background-color: white; box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1); }
+        label { font-weight: 600; color: #5a0016; font-size: 14px; }
+        .btn { width: 100%; padding: 12px; cursor: pointer; background-color: #800020; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; transition: background-color 0.3s ease; margin-top: 10px; }
+        .btn:hover { background-color: #5a0016; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #800020; text-decoration: none; font-size: 14px; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>Додавання курсу</h2>
+    <form action="/create" method="POST">
+        <label>Назва курсу:</label>
+        <input name="title" class="field" required placeholder="Наприклад: Вступ до NestJS" />
+        
+        <label>Викладач:</label>
+        <input name="instructor" class="field" required placeholder="Прізвище І.Б." />
+        
+        <label>Тривалість (год):</label>
+        <input name="duration" class="field" required placeholder="40"/>
+        
+        <input type="submit" value="Зберегти курс" class="btn" />
+    </form>
+    <a href="/" class="back-link">← Повернутися до списку</a>
+</body>
+</html>
